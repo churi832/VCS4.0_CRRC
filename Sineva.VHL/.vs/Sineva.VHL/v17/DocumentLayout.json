@@ -1,0 +1,193 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{744A8081-12C7-49DA-8EC5-CB28195CE9D5}|Data\\Sineva.VHL.Data.DbAdapter\\Sineva.VHL.Data.DbAdapter.csproj|d:\\project\\crrc\\yixing\\program\\vhl4.0_crrc_20250814_0930\\sineva.vhl\\data\\sineva.vhl.data.dbadapter\\teachingoffsetadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744A8081-12C7-49DA-8EC5-CB28195CE9D5}|Data\\Sineva.VHL.Data.DbAdapter\\Sineva.VHL.Data.DbAdapter.csproj|solutionrelative:data\\sineva.vhl.data.dbadapter\\teachingoffsetadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BFDD5C1-57C1-46D5-8C48-6E2EFB70AD31}|Task\\Sineva.VHL.Task\\Sineva.VHL.Task.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\task\\sineva.vhl.task\\taskfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFDD5C1-57C1-46D5-8C48-6E2EFB70AD31}|Task\\Sineva.VHL.Task\\Sineva.VHL.Task.csproj|solutionrelative:task\\sineva.vhl.task\\taskfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FC4C85-A830-461F-BA75-6BB3D755B8CD}|Library\\Sineva.VHL.Library\\Sineva.VHL.Library.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\library\\sineva.vhl.library\\enums\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FC4C85-A830-461F-BA75-6BB3D755B8CD}|Library\\Sineva.VHL.Library\\Sineva.VHL.Library.csproj|solutionrelative:library\\sineva.vhl.library\\enums\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88ED1868-33AD-4314-BCAD-1FF8E5B41DA7}|Device\\Sineva.VHL.Device\\Sineva.VHL.Device.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\device\\sineva.vhl.device\\unit\\devsteer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88ED1868-33AD-4314-BCAD-1FF8E5B41DA7}|Device\\Sineva.VHL.Device\\Sineva.VHL.Device.csproj|solutionrelative:device\\sineva.vhl.device\\unit\\devsteer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BFDD5C1-57C1-46D5-8C48-6E2EFB70AD31}|Task\\Sineva.VHL.Task\\Sineva.VHL.Task.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\task\\sineva.vhl.task\\taskocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFDD5C1-57C1-46D5-8C48-6E2EFB70AD31}|Task\\Sineva.VHL.Task\\Sineva.VHL.Task.csproj|solutionrelative:task\\sineva.vhl.task\\taskocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBB2FF33-FB2A-4648-A820-3BE95B3F1777}|Data\\Sineva.VHL.Data\\Sineva.VHL.Data.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\data\\sineva.vhl.data\\gv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBB2FF33-FB2A-4648-A820-3BE95B3F1777}|Data\\Sineva.VHL.Data\\Sineva.VHL.Data.csproj|solutionrelative:data\\sineva.vhl.data\\gv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D89E60FB-6C6E-4AA4-AA49-8CDC9DD7F72F}|GUI\\Sineva.VHL.GUI\\Sineva.VHL.GUI.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\gui\\sineva.vhl.gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D89E60FB-6C6E-4AA4-AA49-8CDC9DD7F72F}|GUI\\Sineva.VHL.GUI\\Sineva.VHL.GUI.csproj|solutionrelative:gui\\sineva.vhl.gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250708_1419\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CF5E87A-EE60-47F9-A31B-071A8FBCE497}|AppDefine{8CF5E87A-EE60-47F9-A31B-071A8FBCE497}|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\VersionHistory.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8CF5E87A-EE60-47F9-A31B-071A8FBCE497}|AppDefine{8CF5E87A-EE60-47F9-A31B-071A8FBCE497}|solutionrelative:VersionHistory.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D89E60FB-6C6E-4AA4-AA49-8CDC9DD7F72F}|GUI\\Sineva.VHL.GUI\\Sineva.VHL.GUI.csproj|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\gui\\sineva.vhl.gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D89E60FB-6C6E-4AA4-AA49-8CDC9DD7F72F}|GUI\\Sineva.VHL.GUI\\Sineva.VHL.GUI.csproj|solutionrelative:gui\\sineva.vhl.gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250725_0844\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TeachingOffsetAdapter.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Data\\Sineva.VHL.Data.DbAdapter\\TeachingOffsetAdapter.cs",
+              "RelativeDocumentMoniker": "Data\\Sineva.VHL.Data.DbAdapter\\TeachingOffsetAdapter.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Data\\Sineva.VHL.Data.DbAdapter\\TeachingOffsetAdapter.cs",
+              "RelativeToolTip": "Data\\Sineva.VHL.Data.DbAdapter\\TeachingOffsetAdapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T06:16:32.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Library\\Sineva.VHL.Library\\Enums\\Enums.cs",
+              "RelativeDocumentMoniker": "Library\\Sineva.VHL.Library\\Enums\\Enums.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Library\\Sineva.VHL.Library\\Enums\\Enums.cs",
+              "RelativeToolTip": "Library\\Sineva.VHL.Library\\Enums\\Enums.cs",
+              "ViewState": "AgIAANABAAAAAAAAAAAAAOMBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T05:05:35.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DevSteer.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Device\\Sineva.VHL.Device\\Unit\\DevSteer.cs",
+              "RelativeDocumentMoniker": "Device\\Sineva.VHL.Device\\Unit\\DevSteer.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Device\\Sineva.VHL.Device\\Unit\\DevSteer.cs",
+              "RelativeToolTip": "Device\\Sineva.VHL.Device\\Unit\\DevSteer.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAqwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T03:19:38.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppConfig.xml",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250725_0844\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "RelativeDocumentMoniker": "..\\..\\VHL4.0_CRRC_20250725_0844\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250725_0844\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "RelativeToolTip": "..\\..\\VHL4.0_CRRC_20250725_0844\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvx0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-07-25T00:46:47.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TaskOCS.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Task\\Sineva.VHL.Task\\TaskOCS.cs",
+              "RelativeDocumentMoniker": "Task\\Sineva.VHL.Task\\TaskOCS.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Task\\Sineva.VHL.Task\\TaskOCS.cs",
+              "RelativeToolTip": "Task\\Sineva.VHL.Task\\TaskOCS.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwDAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T00:19:29.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppConfig.xml",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250708_1419\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "RelativeDocumentMoniker": "..\\..\\VHL4.0_CRRC_20250708_1419\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250708_1419\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "RelativeToolTip": "..\\..\\VHL4.0_CRRC_20250708_1419\\Sineva.VHL.BuildObject\\Configuration\\AppConfig.xml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-07-08T08:05:07.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VersionHistory.txt",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\VersionHistory.txt",
+              "RelativeDocumentMoniker": "VersionHistory.txt",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\VersionHistory.txt",
+              "RelativeToolTip": "VersionHistory.txt",
+              "ViewState": "AgIAAK0CAAAAAAAAAAAAAMQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-07-08T08:04:50.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GV.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Data\\Sineva.VHL.Data\\GV.cs",
+              "RelativeDocumentMoniker": "Data\\Sineva.VHL.Data\\GV.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Data\\Sineva.VHL.Data\\GV.cs",
+              "RelativeToolTip": "Data\\Sineva.VHL.Data\\GV.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwEoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:59:27.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskFunction.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Task\\Sineva.VHL.Task\\TaskFunction.cs",
+              "RelativeDocumentMoniker": "Task\\Sineva.VHL.Task\\TaskFunction.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\Task\\Sineva.VHL.Task\\TaskFunction.cs",
+              "RelativeToolTip": "Task\\Sineva.VHL.Task\\TaskFunction.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwDgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:51:25.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "RelativeDocumentMoniker": "GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "RelativeToolTip": "GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:28:35.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250814_0930\\Sineva.VHL\\GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "RelativeDocumentMoniker": "GUI\\Sineva.VHL.GUI\\MainForm.cs",
+              "ToolTip": "D:\\Project\\CRRC\\Yixing\\Program\\VHL4.0_CRRC_20250724_1923\\Sineva.VHL\\GUI\\Sineva.VHL.GUI\\MainForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "..\\..\\VHL4.0_CRRC_20250724_1923\\Sineva.VHL\\GUI\\Sineva.VHL.GUI\\MainForm.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:28:34.327Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
