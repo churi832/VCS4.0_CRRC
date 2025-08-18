@@ -464,12 +464,31 @@ namespace Sineva.VHL.Task
                             {
                                 bool last_toNode = false;
                                 strLog += string.Format("Received JC_Number-{0}, ", jp);
+                                
                                 int index0 = m_CurTransferCommand.PathMaps.FindIndex(x => x.ToNodeID == jp && x.JcsPermit == false);
                                 int index1 = -1;
+                                
                                 if (index0 >= 0)
                                 {
-                                    for (int i = 0; i <= index0; i++)
-                                        m_CurTransferCommand.PathMaps[i].JcsPermit = true;
+                                    //명령생성이 되어있을 때 내 앞에 있는거를 확인할것이다..
+                                    int find_index = m_CurTransferCommand.PathMaps.FindIndex(x => x.ToNodeID == jp && (x.MotionProc == enMotionProc.inProc || x.MotionProc == enMotionProc.wait));
+                                    if (find_index == -1)
+                                    {
+                                        //명령이 등록되지않은거면 loop Case만 제외하자..
+                                        int last_index = m_CurTransferCommand.PathMaps.Last().Index;
+                                        find_index = m_CurTransferCommand.PathMaps.FindIndex(x => x.ToNodeID == jp && x.JcsPermit == false && x.Index != last_index);
+                                    }
+                                    if (find_index != -1)
+                                    {
+                                        strLog += $"Find JCS Index. index0 : {index0}, jp : {jp}";
+
+                                        for (int i = 0; i <= find_index; i++)
+                                            m_CurTransferCommand.PathMaps[i].JcsPermit = true;
+                                    }
+                                    else
+                                    {
+                                        strLog += $"Not Find JCS Index. index0 : {index0}, jp : {jp}";
+                                    }
                                 }
                                 else
                                 {
@@ -932,7 +951,7 @@ namespace Sineva.VHL.Task
                         if (XFunc.GetTickCount() - StartTicks > 5000)
                         {
                             m_PermitRetry++;
-                            if (m_PermitRetry > 18 && AlarmId == 0) // 5 * 18 = 1분 30초
+                            if (m_PermitRetry > SetupManager.Instance.SetupJCS.PermitRetryCount && AlarmId == 0) // 5 * 18 = 1분 30초
                             {
                                 SequenceJCSLog.WriteLog(FuncName, string.Format("JCS PassPermit Wait Set Warning"));
                                 AlarmId = m_ALM_JCSPermitWait.ID;
@@ -978,7 +997,7 @@ namespace Sineva.VHL.Task
                             SequenceJCSLog.WriteLog(FuncName, string.Format("JCS PassPermit TimeOver, Retry !"));
 
                             m_PermitRetry++;
-                            if (m_PermitRetry > 18 && AlarmId == 0) // 5 * 18 = 1분 30초
+                            if (m_PermitRetry > SetupManager.Instance.SetupJCS.PermitRetryCount && AlarmId == 0) // 5 * 18 = 1분 30초
                             {
                                 SequenceJCSLog.WriteLog(FuncName, string.Format("JCS PassPermit Wait Set Warning"));
                                 AlarmId = m_ALM_JCSPermitWait.ID;
