@@ -5624,8 +5624,11 @@ namespace Sineva.VHL.Task
                             else
                             {
                                 // 동일 Link 이동인 경우는 PassRequest 할 필요가 없다..
+                                TaskSearchLink.Instance.SearchLink.UpdateCurrentPathComplete = false;
+
                                 SequenceLog.WriteLog(FuncName, string.Format("Single Path Move : {0}", curCommand.EndNode));
                                 curCommand.SetMakeRouteFullPath(curVehicleStatus);
+                                StartTicks = XFunc.GetTickCount();
                                 //seqNo = 60;
                                 seqNo = 55;
                             }
@@ -5666,8 +5669,10 @@ namespace Sineva.VHL.Task
                             {
                                 if (ocsStatus.PathRequestRecvNodes.Count > 0)
                                 {
+                                    TaskSearchLink.Instance.SearchLink.UpdateCurrentPathComplete = false;
                                     curCommand.SetPathNodes(ocsStatus.PathRequestRecvNodes);
                                     curCommand.SetMakeRouteFullPath(curVehicleStatus);
+                                    StartTicks = XFunc.GetTickCount();
                                     //seqNo = 60;
                                     seqNo = 55;
                                 }
@@ -5722,6 +5727,11 @@ namespace Sineva.VHL.Task
                         {
                             SequenceLog.WriteLog(FuncName, string.Format("Current Path Update Complete in SearchLink."));
                             seqNo = 60;
+                        }
+                        else if (XFunc.GetTickCount() - StartTicks > 5000)
+                        {
+                            SequenceLog.WriteLog(FuncName, string.Format("Wait Current Path Update in SearchLink"));
+                            StartTicks = XFunc.GetTickCount();
                         }
                     }
                     break;
@@ -6278,8 +6288,11 @@ namespace Sineva.VHL.Task
                             //bool permit_check_need = true;
                             //permit_check_need &= curCommand.CommandStatus != ProcessStatus.Canceling;
                             //permit_check_need &= curCommand.CommandStatus != ProcessStatus.Aborting;
+                            double diff = ProcessDataHandler.Instance.CurTransferCommand.RemainMotorDistance;
+                            bool in_range = Math.Abs(diff) < m_devTransfer.GetInRange();
 
-                            if (curVehicleStatus.IsInPosition)
+                            //if (curVehicleStatus.IsInPosition)
+                            if(in_range)
                             {
                                 SequenceLog.WriteLog(FuncName, string.Format("IsInPosition Encoder = true OK"));
                                 curCommand.UpdateMotionProcess(curVehicleStatus.CurrentPath, false);
@@ -6287,7 +6300,10 @@ namespace Sineva.VHL.Task
                             bool lastPath = curVehicleStatus.CurrentPath.ToLinkID == 0;
                             if (lastPath)
                             {
-                                seqNo = 200; // Target Position Arrived
+                                //if (in_range)
+                                    seqNo = 900;
+                                //else
+                                //    seqNo = 200; // Target Position Arrived
                             }
                             else //if (permit_check_need)
                             {
@@ -6531,7 +6547,7 @@ namespace Sineva.VHL.Task
                             List<VelSet> m_Target1VelSets = new List<VelSet>(); // foup not exist move
                             m_Target1VelSets = m_devFoupGripper.GetTeachingVelSets(down_prop);
 
-                            if (m_TargetPosition.T > 5.0f || m_TargetPosition.Y > 10.0f) return;
+                            if (Math.Abs(m_TargetPosition.T) > 5.0f || Math.Abs(m_TargetPosition.Y) > 10.0f) return;
 
                             bool position_OK = Math.Abs(m_TargetPosition.T - m_devFoupGripper.AxisTurn.GetDevAxis().GetCurPosition()) < 1f;
                             if (!isOHB)

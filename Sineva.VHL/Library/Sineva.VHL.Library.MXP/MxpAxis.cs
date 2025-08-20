@@ -3709,7 +3709,7 @@ namespace Sineva.VHL.Library.MXP
 
                                     if (m_MxpAxis.m_SequenceCommand.PositionSensorInfo.SensorUse == 0)
                                     {
-                                        targetvel = commandVel;
+                                        targetvel = Math.Max(commandVel, targetvel);
                                         targetacc = m_Axis.AccDefault;
                                         targetdec = m_Axis.DecDefault;
                                         targetjerk = m_Axis.JerkDefault;
