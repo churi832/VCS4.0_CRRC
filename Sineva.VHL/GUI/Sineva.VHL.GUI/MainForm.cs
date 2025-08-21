@@ -146,7 +146,7 @@ namespace Sineva.VHL.GUI
             ok &= Sineva.VHL.Data.Setup.SetupManager.Instance.Initialize();
             ok &= Sineva.VHL.Data.Process.ProcessDataHandler.Instance.Initialize();
 
-            //if (SetupManager.Instance.SetupOperation.NetworkControlUse == Use.Use)
+            if (SetupManager.Instance.SetupOperation.NetworkControlUse == Use.Use)
             {
                 string networkName = AppConfig.Instance.WifiNetworkConnectionID;
                 string wifiName = AppConfig.Instance.WifiName;
@@ -623,7 +623,7 @@ namespace Sineva.VHL.GUI
         {
             XSequence.StopGraceful();
             if (m_TouchGuiWorker != null) m_TouchGuiWorker.CancelAsync();
-            //if (SetupManager.Instance.SetupOperation.NetworkControlUse == Use.Use)
+            if (SetupManager.Instance.SetupOperation.NetworkControlUse == Use.Use)
                 Sineva.VHL.Library.SimpleWifi.NetworkManager.Instance.Destory();
             Process[] process_gui = Process.GetProcessesByName("Sineva.VHL.GUI.Touch");
             if (process_gui.Length > 0) foreach (Process p in process_gui) p.Kill();
@@ -1541,156 +1541,156 @@ namespace Sineva.VHL.GUI
                     RemoteManager.TouchInstance.Remoting.TouchGUI.ObsDown4 = DevicesManager.Instance.DevOBSLower.GetFrontDetectState() == enFrontDetectState.enDeccelation4;
                     RemoteManager.TouchInstance.Remoting.TouchGUI.Destination = ProcessDataHandler.Instance.CurTransferCommand.GetTransferInformation().Destination;
                     RemoteManager.TouchInstance.Remoting.TouchGUI.CarrierID = ProcessDataHandler.Instance.CurTransferCommand.GetTransferInformation().CarrierID;
-                    WebGUI webGUI = new WebGUI();
-                    List<ServoStatus> servoStatusList = new List<ServoStatus>();
-                    for (int i = 0; i < ServoManager.Instance.AxisSource.Count; i++)
-                    {
-                        var servoStatus = new ServoStatus();
-                        var axis = ServoManager.Instance.AxisSource[i] as MpAxis;
-                        ushort decimalPoint = axis.DecimalPoint;
-                        servoStatus.AxisId = axis.AxisId;
-                        servoStatus.AxisName = axis.AxisName;
-                        servoStatus.Position = axis.GetAxisCurPos();
-                        servoStatus.Speed = axis.GetAxisCurSpeed();
-                        servoStatus.Torque = axis.GetAxisCurTorque();
-                        enAxisInFlag axisStatus = axis.GetAxisCurStatus();
-                        servoStatus.IsAlarm = (axisStatus & enAxisInFlag.Alarm) == enAxisInFlag.Alarm /*&& !item.CommandSkip*/;
-                        servoStatus.InPosition = (axisStatus & enAxisInFlag.InPos) == enAxisInFlag.InPos/* && !item.CommandSkip*/;
-                        servoStatus.HomeEnd = (axisStatus & enAxisInFlag.HEnd) == enAxisInFlag.HEnd /*&& !item.CommandSkip*/;
-                        servoStatus.ServoOn = (axisStatus & enAxisInFlag.SvOn) == enAxisInFlag.SvOn;
-                        servoStatus.IsOrg = (axisStatus & enAxisInFlag.Org) == enAxisInFlag.Org;
-                        List<int> con_list = axis.ControllerAlarmIdList.FindAll(n => n != 0);
-                        List<int> dri_list = axis.DriverAlarmIdList.FindAll(n => n != 0);
-                        if (con_list.Count == 0) con_list.Add(0); if (dri_list.Count == 0) dri_list.Add(0);
-                        string alarmlist = string.Format("{0},{1}", string.Join("-", con_list), string.Join("-", dri_list));
-                        servoStatus.AlarmCode = $"{alarmlist},{axis.SequenceState.SequenceAlarmId}";
-                        servoStatusList.Add(servoStatus);
-                    }
-                    List<IoStatus> ioStatuses = new List<IoStatus>();
-                    for (int i = 0; i < IoManager.DiChannels.Count; i++)
-                    {
-                        var iostatus = new IoStatus();
-                        iostatus.ID = IoManager.DiChannels[i].Id;
-                        iostatus.Name = IoManager.DiChannels[i].Name;
-                        iostatus.IoType = IoManager.DiChannels[i].IoType;
-                        iostatus.Description = IoManager.DiChannels[i].Description;
-                        iostatus.WiringNo = IoManager.DiChannels[i].WiringNo;
-                        iostatus.State = IoManager.DiChannels[i].State;
-                        iostatus.IsBContact = IoManager.DiChannels[i].IsBContact;
-                        ioStatuses.Add(iostatus);
-                    }
-                    for (int i = 0; i < IoManager.DoChannels.Count; i++)
-                    {
-                        var iostatus = new IoStatus();
-                        iostatus.ID = IoManager.DoChannels[i].Id;
-                        iostatus.Name = IoManager.DoChannels[i].Name;
-                        iostatus.IoType = IoManager.DoChannels[i].IoType;
-                        iostatus.Description = IoManager.DoChannels[i].Description;
-                        iostatus.WiringNo = IoManager.DoChannels[i].WiringNo;
-                        iostatus.State = IoManager.DoChannels[i].State;
-                        iostatus.IsBContact = IoManager.DoChannels[i].IsBContact;
-                        ioStatuses.Add(iostatus);
-                    }
-                    List<TeachingPortData> teachingPortDatas = new List<TeachingPortData>();
-                    for (int i = 0; i < DatabaseHandler.Instance.DictionaryPortDataList.Values.Count; i++)
-                    {
-                        var data = new TeachingPortData();
-                        var item = DatabaseHandler.Instance.DictionaryPortDataList.Values.ToList()[i];
-                        data.BarcodeLeft = item.BarcodeLeft;
-                        data.BarcodeRight = item.BarcodeRight;
-                        data.BeforeHoistPosition = item.BeforeHoistPosition;
-                        data.BeforeUnloadHoistPosition = item.BeforeUnloadHoistPosition;
-                        data.DriveLeftOffset = item.DriveLeftOffset;
-                        data.DriveRightOffset = item.DriveRightOffset;
-                        data.HoistOffset = item.HoistOffset;
-                        data.HoistPosition = item.HoistPosition;
-                        data.LinkID = item.LinkID;
-                        data.NodeID = item.NodeID;
-                        data.OffsetUsed = item.OffsetUsed;
-                        data.PBSSelectNo = item.PBSSelectNo;
-                        data.PBSUsed = item.PBSUsed;
-                        data.PIOCH = item.PIOCH;
-                        data.PIOCS = item.PIOCS;
-                        data.PIOID = item.PIOID;
-                        data.PIOUsed = item.PIOUsed;
-                        data.PortID = item.PortID;
-                        data.PortProhibition = item.PortProhibition;
-                        data.PortType = (int)item.PortType;
-                        data.ProfileExistPosition = (int)item.ProfileExistPosition;
-                        data.RotateOffset = item.RotateOffset;
-                        data.RotatePosition = item.RotatePosition;
-                        data.SlideOffset = item.SlideOffset;
-                        data.SlidePosition = item.SlidePosition;
-                        data.State = item.State;
-                        data.UnloadHoistPosition = item.UnloadHoistPosition;
-                        data.UnloadRotatePosition = item.UnloadRotatePosition;
-                        data.UnloadSlidePosition = item.UnloadSlidePosition;
-                        teachingPortDatas.Add(data);
-                    }
-                    List<CommandData> commandDatas = new List<CommandData>();
-                    for (int i = 0; i < ProcessDataHandler.Instance.TransferCommands.Count; i++)
-                    {
-                        CommandData data = new CommandData();
-                        var item = ProcessDataHandler.Instance.TransferCommands[i];
-                        data.CassetteID = item.CassetteID;
-                        data.CommandID = item.CommandID;
-                        data.DestinationID = item.DestinationID;
-                        data.IsValid = item.IsValid;
-                        data.SourceID = item.SourceID;
-                        data.ProcessCommand = (int)item.ProcessCommand;
-                        data.TypeOfDestination = item.TypeOfDestination;
-                        data.TargetNodeToDistance = item.TargetNodeToDistance;
-                        commandDatas.Add(data);
-                    }
-                    List<IniTag> iniTags = new List<IniTag>();
-                    var tags = m_EqpManager.GetEqpInitState(out bool update);
-                    for (int i = 0; i < tags.Count(); i++)
-                    {
-                        IniTag tag = new IniTag();
-                        tag.ItemName = tags[i].ItemName;
-                        tag.CheckStatus = tags[i].CheckStatus;
-                        tag.State = tags[i].State;
-                        iniTags.Add(tag);
-                    }
-                    webGUI.ServoStatusList = servoStatusList;
-                    webGUI.TransferCommands = commandDatas;
-                    webGUI.IOList = ioStatuses;
-                    webGUI.TeachingPortDataList = teachingPortDatas;
-                    webGUI.IniTags = iniTags;
-                    webGUI.EqpInitComp = EqpStateManager.Instance.EqpInitComp;
-                    webGUI.EqpInitIng = EqpStateManager.Instance.EqpInitIng;
-                    webGUI.IsAutoTeachingMode = GV.AutoTeachingModeOn;
-                    webGUI.FrontSteerDirection = DevicesManager.Instance.DevSteer.GetFrontSteerDirection();
-                    webGUI.RearSteerDirection = DevicesManager.Instance.DevSteer.GetRearSteerDirection();
-                    webGUI.UpdateTime = DateTime.Now;
-                    webGUI.EqpRunMode = EqpStateManager.Instance.RunMode;
-                    webGUI.TransferCommand = ProcessDataHandler.Instance.CurTransferCommand;
-                    webGUI.VehicleStatus = ProcessDataHandler.Instance.CurVehicleStatus;
-                    webGUI.OcsState = IF.OCS.OCSCommManager.Instance.OcsStatus.ConnectError ? "Error" :
-                        IF.OCS.OCSCommManager.Instance.OcsStatus.Connected ? "Ready" : "Not Ready";
-                    webGUI.JcsState = IF.JCS.JCSCommManager.Instance.JcsStatus.ConnectError ? "Error" :
-                        IF.JCS.JCSCommManager.Instance.JcsStatus.Connected ? "Ready" : "Not Ready";
-                    webGUI.JcsPermit = VHL.Task.TaskJCS.Instance.JcsControl.ReceivedPermit;
-                    webGUI.AutoDoorPermit = VHL.Task.TaskInterface.Instance.AutoDoorControl.ReceivedPermit;
-                    webGUI.Pbs1 = DevicesManager.Instance.DevOBSLookDown.GetFrontDetectState() == enFrontDetectState.enDeccelation1;
-                    webGUI.FrontAntiDropLock = DevicesManager.Instance.DevFrontAntiDrop.IsValid ? DevicesManager.Instance.DevFrontAntiDrop.GetLock() : false;
-                    webGUI.FrontAntiDropUnLock = DevicesManager.Instance.DevFrontAntiDrop.IsValid ? DevicesManager.Instance.DevFrontAntiDrop.GetUnlock() : false;
-                    webGUI.RearAntiDropLock = DevicesManager.Instance.DevRearAntiDrop.IsValid ? DevicesManager.Instance.DevRearAntiDrop.GetLock() : false;
-                    webGUI.RearAntiDropUnLock = DevicesManager.Instance.DevRearAntiDrop.IsValid ? DevicesManager.Instance.DevRearAntiDrop.GetUnlock() : false;
-                    webGUI.GripperOpen = DevicesManager.Instance.DevGripperPIO.IsGripperOpen();
-                    webGUI.GripperClose = DevicesManager.Instance.DevGripperPIO.IsGripperClose();
-                    webGUI.HoistHome = DevicesManager.Instance.DevGripperPIO.DiHoistHome.IsDetected;
-                    webGUI.HoistUp = DevicesManager.Instance.DevGripperPIO.DiHoistUp.IsDetected;
-                    webGUI.HoistLimit = DevicesManager.Instance.DevGripperPIO.DiHoistLimit.IsDetected;
-                    webGUI.LeftProductExist = DevicesManager.Instance.DevGripperPIO.DiLeftProductExist.IsDetected;
-                    webGUI.RightProductExist = DevicesManager.Instance.DevGripperPIO.DiRightProductExist.IsDetected;
-                    webGUI.DlgEqpInitShow = m_DlgEqpInit != null ? m_DlgEqpInit.Visible : false;
-                    webGUI.DlgNotifyErrorShow = m_DlgNotifyError != null ? m_DlgNotifyError.Visible : false;
-                    webGUI.DlgOpCallCommandShow = m_DlgOpCallCommand != null ? m_DlgOpCallCommand.Visible : false;
-                    webGUI.DlgOpCallSingleMessageShow = m_DlgOpCallSingleMessage != null ? m_DlgOpCallSingleMessage.Visible : false;
-                    webGUI.OpCallMsg = m_DlgOpCallSingleMessage != null ? m_DlgOpCallSingleMessage.GetMessage() : "";
-                    webGUI.FoupExist = DevicesManager.Instance.DevGripperPIO.IsProductExist();
-                    RemoteManager.TouchInstance.Remoting.TouchGUI.Web = webGUI;
+                    //WebGUI webGUI = new WebGUI();
+                    //List<ServoStatus> servoStatusList = new List<ServoStatus>();
+                    //for (int i = 0; i < ServoManager.Instance.AxisSource.Count; i++)
+                    //{
+                    //    var servoStatus = new ServoStatus();
+                    //    var axis = ServoManager.Instance.AxisSource[i] as MpAxis;
+                    //    ushort decimalPoint = axis.DecimalPoint;
+                    //    servoStatus.AxisId = axis.AxisId;
+                    //    servoStatus.AxisName = axis.AxisName;
+                    //    servoStatus.Position = axis.GetAxisCurPos();
+                    //    servoStatus.Speed = axis.GetAxisCurSpeed();
+                    //    servoStatus.Torque = axis.GetAxisCurTorque();
+                    //    enAxisInFlag axisStatus = axis.GetAxisCurStatus();
+                    //    servoStatus.IsAlarm = (axisStatus & enAxisInFlag.Alarm) == enAxisInFlag.Alarm /*&& !item.CommandSkip*/;
+                    //    servoStatus.InPosition = (axisStatus & enAxisInFlag.InPos) == enAxisInFlag.InPos/* && !item.CommandSkip*/;
+                    //    servoStatus.HomeEnd = (axisStatus & enAxisInFlag.HEnd) == enAxisInFlag.HEnd /*&& !item.CommandSkip*/;
+                    //    servoStatus.ServoOn = (axisStatus & enAxisInFlag.SvOn) == enAxisInFlag.SvOn;
+                    //    servoStatus.IsOrg = (axisStatus & enAxisInFlag.Org) == enAxisInFlag.Org;
+                    //    List<int> con_list = axis.ControllerAlarmIdList.FindAll(n => n != 0);
+                    //    List<int> dri_list = axis.DriverAlarmIdList.FindAll(n => n != 0);
+                    //    if (con_list.Count == 0) con_list.Add(0); if (dri_list.Count == 0) dri_list.Add(0);
+                    //    string alarmlist = string.Format("{0},{1}", string.Join("-", con_list), string.Join("-", dri_list));
+                    //    servoStatus.AlarmCode = $"{alarmlist},{axis.SequenceState.SequenceAlarmId}";
+                    //    servoStatusList.Add(servoStatus);
+                    //}
+                    //List<IoStatus> ioStatuses = new List<IoStatus>();
+                    //for (int i = 0; i < IoManager.DiChannels.Count; i++)
+                    //{
+                    //    var iostatus = new IoStatus();
+                    //    iostatus.ID = IoManager.DiChannels[i].Id;
+                    //    iostatus.Name = IoManager.DiChannels[i].Name;
+                    //    iostatus.IoType = IoManager.DiChannels[i].IoType;
+                    //    iostatus.Description = IoManager.DiChannels[i].Description;
+                    //    iostatus.WiringNo = IoManager.DiChannels[i].WiringNo;
+                    //    iostatus.State = IoManager.DiChannels[i].State;
+                    //    iostatus.IsBContact = IoManager.DiChannels[i].IsBContact;
+                    //    ioStatuses.Add(iostatus);
+                    //}
+                    //for (int i = 0; i < IoManager.DoChannels.Count; i++)
+                    //{
+                    //    var iostatus = new IoStatus();
+                    //    iostatus.ID = IoManager.DoChannels[i].Id;
+                    //    iostatus.Name = IoManager.DoChannels[i].Name;
+                    //    iostatus.IoType = IoManager.DoChannels[i].IoType;
+                    //    iostatus.Description = IoManager.DoChannels[i].Description;
+                    //    iostatus.WiringNo = IoManager.DoChannels[i].WiringNo;
+                    //    iostatus.State = IoManager.DoChannels[i].State;
+                    //    iostatus.IsBContact = IoManager.DoChannels[i].IsBContact;
+                    //    ioStatuses.Add(iostatus);
+                    //}
+                    //List<TeachingPortData> teachingPortDatas = new List<TeachingPortData>();
+                    //for (int i = 0; i < DatabaseHandler.Instance.DictionaryPortDataList.Values.Count; i++)
+                    //{
+                    //    var data = new TeachingPortData();
+                    //    var item = DatabaseHandler.Instance.DictionaryPortDataList.Values.ToList()[i];
+                    //    data.BarcodeLeft = item.BarcodeLeft;
+                    //    data.BarcodeRight = item.BarcodeRight;
+                    //    data.BeforeHoistPosition = item.BeforeHoistPosition;
+                    //    data.BeforeUnloadHoistPosition = item.BeforeUnloadHoistPosition;
+                    //    data.DriveLeftOffset = item.DriveLeftOffset;
+                    //    data.DriveRightOffset = item.DriveRightOffset;
+                    //    data.HoistOffset = item.HoistOffset;
+                    //    data.HoistPosition = item.HoistPosition;
+                    //    data.LinkID = item.LinkID;
+                    //    data.NodeID = item.NodeID;
+                    //    data.OffsetUsed = item.OffsetUsed;
+                    //    data.PBSSelectNo = item.PBSSelectNo;
+                    //    data.PBSUsed = item.PBSUsed;
+                    //    data.PIOCH = item.PIOCH;
+                    //    data.PIOCS = item.PIOCS;
+                    //    data.PIOID = item.PIOID;
+                    //    data.PIOUsed = item.PIOUsed;
+                    //    data.PortID = item.PortID;
+                    //    data.PortProhibition = item.PortProhibition;
+                    //    data.PortType = (int)item.PortType;
+                    //    data.ProfileExistPosition = (int)item.ProfileExistPosition;
+                    //    data.RotateOffset = item.RotateOffset;
+                    //    data.RotatePosition = item.RotatePosition;
+                    //    data.SlideOffset = item.SlideOffset;
+                    //    data.SlidePosition = item.SlidePosition;
+                    //    data.State = item.State;
+                    //    data.UnloadHoistPosition = item.UnloadHoistPosition;
+                    //    data.UnloadRotatePosition = item.UnloadRotatePosition;
+                    //    data.UnloadSlidePosition = item.UnloadSlidePosition;
+                    //    teachingPortDatas.Add(data);
+                    //}
+                    //List<CommandData> commandDatas = new List<CommandData>();
+                    //for (int i = 0; i < ProcessDataHandler.Instance.TransferCommands.Count; i++)
+                    //{
+                    //    CommandData data = new CommandData();
+                    //    var item = ProcessDataHandler.Instance.TransferCommands[i];
+                    //    data.CassetteID = item.CassetteID;
+                    //    data.CommandID = item.CommandID;
+                    //    data.DestinationID = item.DestinationID;
+                    //    data.IsValid = item.IsValid;
+                    //    data.SourceID = item.SourceID;
+                    //    data.ProcessCommand = (int)item.ProcessCommand;
+                    //    data.TypeOfDestination = item.TypeOfDestination;
+                    //    data.TargetNodeToDistance = item.TargetNodeToDistance;
+                    //    commandDatas.Add(data);
+                    //}
+                    //List<IniTag> iniTags = new List<IniTag>();
+                    //var tags = m_EqpManager.GetEqpInitState(out bool update);
+                    //for (int i = 0; i < tags.Count(); i++)
+                    //{
+                    //    IniTag tag = new IniTag();
+                    //    tag.ItemName = tags[i].ItemName;
+                    //    tag.CheckStatus = tags[i].CheckStatus;
+                    //    tag.State = tags[i].State;
+                    //    iniTags.Add(tag);
+                    //}
+                    //webGUI.ServoStatusList = servoStatusList;
+                    //webGUI.TransferCommands = commandDatas;
+                    //webGUI.IOList = ioStatuses;
+                    //webGUI.TeachingPortDataList = teachingPortDatas;
+                    //webGUI.IniTags = iniTags;
+                    //webGUI.EqpInitComp = EqpStateManager.Instance.EqpInitComp;
+                    //webGUI.EqpInitIng = EqpStateManager.Instance.EqpInitIng;
+                    //webGUI.IsAutoTeachingMode = GV.AutoTeachingModeOn;
+                    //webGUI.FrontSteerDirection = DevicesManager.Instance.DevSteer.GetFrontSteerDirection();
+                    //webGUI.RearSteerDirection = DevicesManager.Instance.DevSteer.GetRearSteerDirection();
+                    //webGUI.UpdateTime = DateTime.Now;
+                    //webGUI.EqpRunMode = EqpStateManager.Instance.RunMode;
+                    //webGUI.TransferCommand = ProcessDataHandler.Instance.CurTransferCommand;
+                    //webGUI.VehicleStatus = ProcessDataHandler.Instance.CurVehicleStatus;
+                    //webGUI.OcsState = IF.OCS.OCSCommManager.Instance.OcsStatus.ConnectError ? "Error" :
+                    //    IF.OCS.OCSCommManager.Instance.OcsStatus.Connected ? "Ready" : "Not Ready";
+                    //webGUI.JcsState = IF.JCS.JCSCommManager.Instance.JcsStatus.ConnectError ? "Error" :
+                    //    IF.JCS.JCSCommManager.Instance.JcsStatus.Connected ? "Ready" : "Not Ready";
+                    //webGUI.JcsPermit = VHL.Task.TaskJCS.Instance.JcsControl.ReceivedPermit;
+                    //webGUI.AutoDoorPermit = VHL.Task.TaskInterface.Instance.AutoDoorControl.ReceivedPermit;
+                    //webGUI.Pbs1 = DevicesManager.Instance.DevOBSLookDown.GetFrontDetectState() == enFrontDetectState.enDeccelation1;
+                    //webGUI.FrontAntiDropLock = DevicesManager.Instance.DevFrontAntiDrop.IsValid ? DevicesManager.Instance.DevFrontAntiDrop.GetLock() : false;
+                    //webGUI.FrontAntiDropUnLock = DevicesManager.Instance.DevFrontAntiDrop.IsValid ? DevicesManager.Instance.DevFrontAntiDrop.GetUnlock() : false;
+                    //webGUI.RearAntiDropLock = DevicesManager.Instance.DevRearAntiDrop.IsValid ? DevicesManager.Instance.DevRearAntiDrop.GetLock() : false;
+                    //webGUI.RearAntiDropUnLock = DevicesManager.Instance.DevRearAntiDrop.IsValid ? DevicesManager.Instance.DevRearAntiDrop.GetUnlock() : false;
+                    //webGUI.GripperOpen = DevicesManager.Instance.DevGripperPIO.IsGripperOpen();
+                    //webGUI.GripperClose = DevicesManager.Instance.DevGripperPIO.IsGripperClose();
+                    //webGUI.HoistHome = DevicesManager.Instance.DevGripperPIO.DiHoistHome.IsDetected;
+                    //webGUI.HoistUp = DevicesManager.Instance.DevGripperPIO.DiHoistUp.IsDetected;
+                    //webGUI.HoistLimit = DevicesManager.Instance.DevGripperPIO.DiHoistLimit.IsDetected;
+                    //webGUI.LeftProductExist = DevicesManager.Instance.DevGripperPIO.DiLeftProductExist.IsDetected;
+                    //webGUI.RightProductExist = DevicesManager.Instance.DevGripperPIO.DiRightProductExist.IsDetected;
+                    //webGUI.DlgEqpInitShow = m_DlgEqpInit != null ? m_DlgEqpInit.Visible : false;
+                    //webGUI.DlgNotifyErrorShow = m_DlgNotifyError != null ? m_DlgNotifyError.Visible : false;
+                    //webGUI.DlgOpCallCommandShow = m_DlgOpCallCommand != null ? m_DlgOpCallCommand.Visible : false;
+                    //webGUI.DlgOpCallSingleMessageShow = m_DlgOpCallSingleMessage != null ? m_DlgOpCallSingleMessage.Visible : false;
+                    //webGUI.OpCallMsg = m_DlgOpCallSingleMessage != null ? m_DlgOpCallSingleMessage.GetMessage() : "";
+                    //webGUI.FoupExist = DevicesManager.Instance.DevGripperPIO.IsProductExist();
+                    //RemoteManager.TouchInstance.Remoting.TouchGUI.Web = webGUI;
                     if (AlarmCurrentProvider.Instance.IsHeavyAlarm())
                     {
                         RemoteManager.TouchInstance.Remoting.TouchGUI.IsAlarm = true;
